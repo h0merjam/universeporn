@@ -1,0 +1,70 @@
+<div class="viewer"
+  data-schema="{{vm.asset.schema}}"
+  data-zoom-level="{{vm.zoomLevel}}"
+  ng-class="{'show-ui': vm.showUI}">
+
+  <span ng-if="vm.asset.schema === 'image'">
+
+    <hj-custom-seadragon
+      dzi="vm.dzi"
+      focus-point="vm.focusPoint"
+      zoom-level="vm.zoomLevel"
+      disabled="vm.disableViewer"
+      ></hj-custom-seadragon>
+
+  </span>
+
+  <span ng-if="vm.asset.schema === 'video'">
+
+    <div class="video">
+      <iframe iframe-events-src="document" hj-vimeo-api ng-src="{{ '//player.vimeo.com/video/' + vm.asset.fields.video.oembed.id + '?api=1&badge=0&byline=0&portrait=0&title=0&color=ffffff&hd=1&autoplay=1&loop=0' }}"
+        style="position: absolute; width: 100%; height: 100%;"
+        width="100%" height="100%" frameborder="0" webkitallowfullscreen allowfullscreen></iframe>
+
+    </div>
+
+  </span>
+
+  <div class="back-wrapper">
+
+    <h4><a ui-sref="index.portfolio">{{ $root.$state.$current.name === 'index.home' ? 'Thumbnails' : 'Back' }}</a></h4>
+
+  </div>
+
+  <div class="nav nav--next" ng-click="vm.next()">
+
+    <div class="icon icon-arrow-right"></div>
+
+  </div>
+
+  <div class="nav nav--prev" ng-click="vm.prev()">
+
+    <div class="icon icon-arrow-left"></div>
+
+  </div>
+
+  <!--<div class="hints">
+
+    <div class="scroll">
+
+      <div class="icon icon-arrow-up"></div>
+
+      <div>•</div>
+
+      <div class="icon icon-arrow-down"></div>
+
+    </div>
+
+  </div>-->
+
+  <div class="caption">
+    <p>
+      <span>{{vm.asset.fields.description}}</span>
+      <br>
+      <span>Distance: {{vm.asset.fields.distance}};</span>
+      <span>Constellation: {{vm.asset.fields.constellation.terms[0].title}};</span>
+      <span>Category: {{vm.asset.fields.category.terms[0].title}}</span>
+    </p>
+  </div>
+
+</div>

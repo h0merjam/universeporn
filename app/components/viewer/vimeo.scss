@@ -1,0 +1,43 @@
+#player, .fallback, body, html, iframe {
+  background: transparent !important;
+}
+
+.player {
+
+  &:not(.touch-support) {
+    pointer-events: none;
+  }
+
+  .video-wrapper {
+    background: transparent !important;
+  }
+
+  .controls {
+    top: 0;
+
+    .play {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+  }
+
+  &:not(.touch-support) {
+    > *:not(.video-wrapper) {
+      display: none;
+    }
+  }
+
+  &.touch-support {
+    .controls-wrapper > *:not(.controls) {
+      display: none;
+    }
+    .controls > *:not(.play) {
+      display: none;
+    }
+  }
+
+}

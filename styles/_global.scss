@@ -1,0 +1,134 @@
+html * {
+  &::selection {
+    color: white;
+    background: $black;
+  }
+  &::-moz-selection {
+    color: white;
+    background: $black;
+  }
+  &:active {
+    outline: none;
+  }
+  &:focus {
+    // outline: $red 1px dotted;
+  }
+  &:not(img) {
+    // backface-visibility: hidden;
+  }
+}
+
+html.no-touch {
+  @include scrollbars($black, $white, 0px, 0px, $grey-mid-light, 2px);
+}
+
+html.no-touch.safari {
+  @include scrollbars($black, $white, 10px, 0px, $grey-mid-light, 2px);
+}
+
+html.loading {
+  cursor: wait;
+  body {
+    pointer-events: none;
+  }
+}
+
+body {
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility; // zoom: reset;
+  font-size: 10px;
+  &.no-transitions * {
+    transition-duration: 0s !important;
+  }
+  color: #222;
+  content-zooming: none;
+  background-color: $black;
+  &[data-state*=".profile"] {
+    background-color: $white;
+  }
+  transition: background-color 0.4s;
+}
+
+article,
+figure,
+nav {
+  margin: 0;
+  padding: 0;
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+input,
+select {
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+video {
+  border: none;
+  vertical-align: bottom; // backface-visibility: hidden;
+}
+
+ul {
+  font-size: inherit;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  width: 100%;
+  border: solid $black;
+  border-width: 0 0 2px;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+  &:hover,
+  &:active,
+  &:focus {
+    color: currentColor;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li {
+  @include sans;
+  color: currentColor;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  @include breakpoint(xlarge) {
+    font-size: 2.2rem;
+  }
+}
+
+p {
+  @include sans;
+  color: currentColor;
+  font-size: 2rem;
+  margin: 0;
+  line-height: 3rem;
+  margin-bottom: 3rem;
+  @include breakpoint(xlarge) {
+    font-size: 2.4rem;
+    line-height: 3.6rem;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

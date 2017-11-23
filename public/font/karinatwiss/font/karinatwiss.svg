@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2016 by original authors @ fontello.com</metadata>
+<defs>
+<font id="karinatwiss" horiz-adv-x="1000" >
+<font-face font-family="karinatwiss" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="arrow-down" unicode="&#xe800;" d="m500 288l-531 531 62 62 469-469 469 469 62-62-531-531z" horiz-adv-x="1000" />
+<glyph glyph-name="arrow-left" unicode="&#xe801;" d="m969-181l-531 531 531 531 62-62-469-469 469-469-62-62z" horiz-adv-x="1000" />
+<glyph glyph-name="arrow-right" unicode="&#xe802;" d="m31-181l-62 62 469 469-469 469 62 62 531-531-531-531z" horiz-adv-x="1000" />
+<glyph glyph-name="arrow-up" unicode="&#xe803;" d="m969-181l-469 469-469-469-62 62 531 531 531-531-62-62z" horiz-adv-x="1000" />
+<glyph glyph-name="close" unicode="&#xe804;" d="m969-181l-469 469-469-469-62 62 469 469-469 469 62 62 469-469 469 469 62-62-469-469 469-469-62-62z" horiz-adv-x="1000" />
+<glyph glyph-name="play" unicode="&#xe805;" d="m19-141v982l614-491-614-491z m87 800v-618l387 309-387 309z" horiz-adv-x="1000" />
+<glyph glyph-name="scroll" unicode="&#xe806;" d="m646 454l-313 313-312-313-42 42 354 354 354-354-41-42z m41-250l-41 42-313-313-312 313-42-42 354-354 354 354z m-229 175h-250v-58h250v58z" horiz-adv-x="667" />
+</font>
+</defs>
+</svg>

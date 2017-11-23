@@ -1,0 +1,63 @@
+<div class="table"
+  ng-click="vm.close()"
+  ng-swipe-right="vm.prev()"
+  ng-swipe-left="vm.next()">
+
+  <div class="cell">
+
+    <div class="row row--max-width">
+
+      <div class="column small-24 text-center">
+
+        <a class="close" ui-sref="^">
+          <img src="/img/close.svg">
+        </a>
+
+        <a ng-href="{{$root.$state.href($root.$state.$current.name, {index: vm.nextIndex})}}">
+
+          <div class="flex__wrapper images-loaded" ng-click="vm.clickImage($event)" hj-split-cursor>
+
+            <div ng-repeat="asset in vm.assets.entities"
+              class="asset__wrapper"
+              ng-style="{
+                'flex-basis': asset.thumbnail.ratio / vm.assets.ratio * 100 + '%',
+              }">
+
+              <img ng-if="asset.schema === 'image'" alt="{{asset.title}}"
+                ng-src="{{ vm.getImageSrc(asset) }}"
+                ng-srcset="{{ vm.getImageSrcset(asset) }}"
+                sizes="100vw">
+
+              <iframe ng-if="asset.schema === 'video'" iframe-events-src="document" hj-vimeo-api ng-src="{{ '//player.vimeo.com/video/' + asset.fields.video.oembed.id + '?api=1&badge=0&byline=0&portrait=0&title=0&color=ffffff&hd=1&autoplay=1&loop=0' }}"
+                style="position: absolute; width: 100%; height: 100%;"
+                width="100%" height="100%" frameborder="0" webkitallowfullscreen allowfullscreen></iframe>
+
+            </div>
+
+          </div>
+
+          <div class="asset__caption">
+            <h4>{{vm.caption}}</h4>
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="nav nav--next" ng-click="vm.next()">
+
+  <div class="icon icon-arrow-right"></div>
+
+</div>
+
+<div class="nav nav--prev" ng-click="vm.prev()">
+
+  <div class="icon icon-arrow-left"></div>
+
+</div>

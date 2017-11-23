@@ -1,0 +1,88 @@
+@import '../../../styles/common';
+
+archive {
+  position: relative;
+  display: block;
+  min-height: 100vh;
+  background: $grey-light;
+
+  transition: filter 0.4s, opacity 0.4s;
+
+  html:not(.ipad) body[data-state*="profile"] &,
+  html:not(.ipad) body[data-state*="viewer"] & {
+    filter: blur(20px);
+    opacity: 0.3;
+  }
+
+  nav {
+    padding: 3rem 0 2rem;
+
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+
+  figure {
+    position: relative;
+    margin-bottom: 1rem;
+    @include breakpoint(medium) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  .background {
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+    background: $white;
+  }
+
+  .flex__wrapper {
+    position: absolute;
+    top: 1rem;
+    bottom: 1rem;
+    left: 2.5rem;
+    right: 2.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .asset__wrapper {
+    position: relative;
+    display: block;
+    height: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: center;
+
+    img {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      max-width: 100%;
+      max-height: 100%;
+      z-index: 0;
+    }
+
+    .icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 3rem;
+      height: 3rem;
+      text-align: center;
+      z-index: 1;
+      color: $white;
+      font-size: 3rem;
+      line-height: 0;
+      text-shadow: 0px 2px 5px rgba($black, 0.2);
+    }
+  }
+
+}

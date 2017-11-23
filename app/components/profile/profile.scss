@@ -1,0 +1,44 @@
+@import '../../../styles/common';
+
+profile {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  overflow: auto;
+
+  html.ipad & {
+    background: $white;
+  }
+
+  .row {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    max-width: 74rem;
+
+    // @include breakpoint(xlarge) {
+    //   max-width: 80rem;
+    // }
+  }
+
+  h2, h3, h4, h5 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  p a:hover {
+    border-bottom: 1px solid $black;
+  }
+
+  .credit {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    margin-top: 4rem;
+  }
+
+}

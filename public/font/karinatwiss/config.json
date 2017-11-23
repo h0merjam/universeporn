@@ -1,0 +1,108 @@
+{
+  "name": "karinatwiss",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "8658c463d5c3a0a8d3587d7de5ce38e7",
+      "css": "arrow-down",
+      "code": 59392,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M500 561.9L-30.9 30.9 30.9-30.9 500 438.1 969.1-30.9 1030.9 30.9 500 561.9Z",
+        "width": 1000
+      },
+      "search": [
+        "arrow-down"
+      ]
+    },
+    {
+      "uid": "7fa33c01bc2cc17846eb67c129739ab5",
+      "css": "arrow-left",
+      "code": 59393,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M969.1 1030.9L438.1 500 969.1-30.9 1030.9 30.9 561.9 500 1030.9 969.1 969.1 1030.9Z",
+        "width": 1000
+      },
+      "search": [
+        "arrow-left"
+      ]
+    },
+    {
+      "uid": "1e0845a94cf6ed39cd02f16f446c6041",
+      "css": "arrow-right",
+      "code": 59394,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M30.9 1030.9L-30.9 969.1 438.1 500-30.9 30.9 30.9-30.9 561.9 500 30.9 1030.9Z",
+        "width": 1000
+      },
+      "search": [
+        "arrow-right"
+      ]
+    },
+    {
+      "uid": "b8e36b78e8b4f407952e47009291f36f",
+      "css": "arrow-up",
+      "code": 59395,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M969.1 1030.9L500 561.9 30.9 1030.9-30.9 969.1 500 438.1 1030.9 969.1 969.1 1030.9Z",
+        "width": 1000
+      },
+      "search": [
+        "arrow-up"
+      ]
+    },
+    {
+      "uid": "234d0c4d11504e5db916b9c7bc8cef3c",
+      "css": "close",
+      "code": 59396,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M969.1 1030.9L500 561.9 30.9 1030.9-30.9 969.1 438.1 500-30.9 30.9 30.9-30.9 500 438.1 969.1-30.9 1030.9 30.9 561.9 500 1030.9 969.1 969.1 1030.9Z",
+        "width": 1000
+      },
+      "search": [
+        "close"
+      ]
+    },
+    {
+      "uid": "128c70227a09bf23cb57efd962575979",
+      "css": "play",
+      "code": 59397,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M18.8 991V9L632.5 500 18.8 991ZM106.3 191V809L492.5 500 106.3 191Z",
+        "width": 1000
+      },
+      "search": [
+        "play"
+      ]
+    },
+    {
+      "uid": "f3d4ef4d100c953c9a2b191d035c416e",
+      "css": "scroll",
+      "code": 59398,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M646 395.6L333.3 82.9 20.6 395.6-20.6 354.4 333.3 0.4 687.3 354.4 646 395.6ZM687.3 645.6L646 604.4 333.3 917.1 20.6 604.4-20.6 645.6 333.3 999.6 687.3 645.6ZM458.3 470.8H208.3V529.2H458.3V470.8Z",
+        "width": 667
+      },
+      "search": [
+        "scroll"
+      ]
+    }
+  ]
+}

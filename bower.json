@@ -1,0 +1,22 @@
+{
+  "name": "universe.porn",
+  "version": "0.0.0",
+  "authors": [
+    "Studio Thomas <hello@studiothomas.co.uk>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "modernizr": "~2.8.3",
+    "detectizr": "~2.2.0",
+    "imagesloaded": "~4.0.0",
+    "shine": "~0.2.8"
+  }
+}

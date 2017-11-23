@@ -1,0 +1,45 @@
+{
+  "name": "universe.porn",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "8.x",
+    "npm": "5.2.x"
+  },
+  "scripts": {
+    "start": "nodemon index.js --ext js,html --watch routes --exec 'node -r dotenv/config'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gulp build; gulp bump; git add --all; git commit --all --message \"deploy\"; git remote | xargs -L1 git push --all"
+  },
+  "dependencies": {
+    "@homerjam/ace-app-webpack": "^0.2.3",
+    "forever": "^0.15.3"
+  },
+  "devDependencies": {
+    "@homerjam/ace-angular": "^0.2.3",
+    "@homerjam/ace-dev-webpack": "^0.2.3",
+    "angular": "^1.6.6",
+    "angular-animate": "^1.6.6",
+    "angular-columnify": "^0.1.20",
+    "angular-gsapify-router": "0.0.35",
+    "angular-images-loaded": "^0.2.6",
+    "angular-loading-bar": "^0.9.0",
+    "angular-sanitize": "^1.6.6",
+    "angular-scroll": "^1.0.2",
+    "angular-scroll-magic": "^0.1.8",
+    "angular-touch": "^1.6.6",
+    "angular-ui-router": "^0.4.3",
+    "bourbon": "^4.3.4",
+    "dotenv": "^4.0.0",
+    "eases": "^1.0.8",
+    "foundation-sites": "^6.4.3",
+    "hamsterjs": "^1.1.2",
+    "lethargy": "^1.0.4",
+    "openseadragon": "^2.3.1",
+    "scrollmonitor": "^1.2.4",
+    "viewport-units-buggyfill": "^0.6.2",
+    "vimeo-froogaloop2": "^0.1.1"
+  }
+}

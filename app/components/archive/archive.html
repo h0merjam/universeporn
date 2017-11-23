@@ -1,0 +1,39 @@
+<nav class="row">
+
+  <ul>
+    <li class="column small-12 medium-4 medium-push-4 text-center"><a ui-sref="index.home"><h1>Universe Porn</h1></a></li>
+    <li class="column small-6 medium-4 medium-pull-4 text-center"><a ui-sref="index.portfolio">Observations</a></li>
+    <li class="column small-6 medium-4 text-center"><a ui-sref=".profile">Information</a></li>
+  </ul>
+
+</nav>
+
+<div class="row">
+
+  <figure ng-repeat="group in vm.assets track by $index" class="column end small-6 medium-3 large-2">
+
+    <a ui-sref="index.archive.viewer({index: $index})">
+
+      <div class="background"></div>
+
+      <div class="flex__wrapper">
+
+        <div ng-repeat="asset in group.entities track by $index"
+          class="asset__wrapper"
+          ng-style="{
+            'flex-basis': asset.thumbnail.ratio / group.ratio * 100 + '%',
+          }">
+
+          <img nopin="nopin" ng-src="{{$root.$helper.thumbnailSrc(asset.thumbnail, 'w:450;h:300;q:80;sh:1')}}" title="{{asset.fields.description}}">
+
+          <div ng-if="asset.schema === 'video'" class="icon icon-play"></div>
+
+        </div>
+
+      </div>
+
+    </a>
+
+  </figure>
+
+</div>
