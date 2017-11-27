@@ -1,3 +1,5 @@
+/* eslint-env browser */
+
 import 'script-loader!modernizr/modernizr';
 import 'script-loader!detectizr';
 
@@ -252,11 +254,11 @@ angular.module('app', [
 
     // Scroll position
 
-    let scrollMap = {};
+    const scrollMap = {};
     let currentStateKey;
 
-    let getCurrentStateKey = () => {
-      let currentState = {
+    const getCurrentStateKey = () => {
+      const currentState = {
         name: $state.current.name,
         params: $state.params,
       };
@@ -277,10 +279,10 @@ angular.module('app', [
         return;
       }
 
-      let prevState = $state.history[$state.history.length - 2];
+      const prevState = $state.history[$state.history.length - 2];
 
       if (prevState) {
-        let prevStateKey = JSON.stringify(prevState);
+        const prevStateKey = JSON.stringify(prevState);
 
         if (currentStateKey === prevStateKey) {
           $document.scrollTo(0, scrollMap[prevStateKey]);
@@ -288,7 +290,7 @@ angular.module('app', [
         }
       }
 
-      let view = element.attr('ui-view');
+      const view = element.attr('ui-view');
 
       if (view === 'content') {
         $timeout(() => {
@@ -299,50 +301,30 @@ angular.module('app', [
 
     // Favicon
 
-    let faviconEl = $document[0].querySelector('link[rel*="icon"]');
+    const faviconEl = $document[0].querySelector('link[rel="shortcut icon"]');
 
-    let favicons = ['/img/eye1.ico', '/img/eye2.ico'];
-
-    // let favicons = [
-    //   '/img/favicon/k.ico',
-    //   '/img/favicon/a.ico',
-    //   '/img/favicon/r.ico',
-    //   '/img/favicon/i.ico',
-    //   '/img/favicon/n.ico',
-    //   '/img/favicon/a.ico',
-    //   '/img/favicon/t.ico',
-    //   '/img/favicon/w.ico',
-    //   '/img/favicon/i.ico',
-    //   '/img/favicon/s.ico',
-    //   '/img/favicon/s.ico',
-    //   '/img/eye1.ico',
-    //   '/img/eye2.ico',
-    //   '/img/eye1.ico',
-    // ];
+    const favicons = [
+      '/img/favicon/1.ico',
+      '/img/favicon/2.ico',
+      '/img/favicon/3.ico',
+      '/img/favicon/4.ico',
+      '/img/favicon/5.ico',
+      '/img/favicon/6.ico',
+      '/img/favicon/7.ico',
+      '/img/favicon/8-behind.ico',
+      '/img/favicon/9.ico',
+    ];
 
     let faviconCounter = 0;
-    let faviconRepeatCounter = 0;
 
-    let toggleFavicon = () => {
+    const toggleFavicon = () => {
       faviconEl.setAttribute('href', favicons[faviconCounter]);
 
       faviconCounter = faviconCounter === favicons.length - 1 ? 0 : faviconCounter + 1;
 
-      if (faviconRepeatCounter === 2) {
-        faviconEl.setAttribute('href', '/img/favicon.ico');
-        faviconRepeatCounter = 0;
-
-        $timeout(toggleFavicon, 15000);
-
-      } else {
-        if (faviconCounter === 0) {
-          faviconRepeatCounter++;
-        }
-
-        $timeout(toggleFavicon, 500);
-      }
+      $timeout(toggleFavicon, faviconCounter === 8 ? 500 : 200);
     };
 
-    // $timeout(toggleFavicon, 15000);
+    $timeout(toggleFavicon, 2000);
 
   });

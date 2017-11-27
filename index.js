@@ -18,6 +18,8 @@ AceApp.app({
 
   themeColor: '#000000',
 
+  icons: false,
+
   viewsDir: path.resolve(__dirname, 'views'),
   routesDir: path.resolve(__dirname, 'routes'),
   publicDir: path.resolve(__dirname, 'public'),

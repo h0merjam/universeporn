@@ -1,11 +1,11 @@
 html * {
   &::selection {
-    color: white;
-    background: $black;
+    color: black;
+    background: white;
   }
   &::-moz-selection {
-    color: white;
-    background: $black;
+    color: black;
+    background: white;
   }
   &:active {
     outline: none;

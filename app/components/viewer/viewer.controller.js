@@ -1,21 +1,21 @@
 import angular from 'angular';
-import vimeoStyles from '!!raw-loader!sass-loader!./vimeo.scss';
+// import vimeoStyles from '!!raw-loader!sass-loader!./vimeo.scss';
 
 class ViewerController {
   /* @ngInject */
   constructor($rootScope, $scope, $state, $stateParams, $window, $document, $timeout, HelperService) {
-    let vm = this;
+    const vm = this;
 
-    let locals = $state.$current.locals.globals;
+    const locals = $state.$current.locals.globals;
 
-    let isHome = $state.current.name === 'index.home';
+    const isHome = $state.current.name === 'index.home';
 
-    let hero = locals.portfolio.fields.hero;
-    let portfolio = locals.portfolio.fields.assets;
+    const hero = locals.portfolio.fields.hero;
+    const portfolio = locals.portfolio.fields.assets;
 
-    let index = $stateParams.index !== undefined ? parseInt($stateParams.index) - 1 : 0;
-    let nextIndex = index === portfolio.length - 1 ? 0 : index + 1;
-    let prevIndex = index === 0 ? portfolio.length - 1 : index - 1;
+    const index = $stateParams.index !== undefined ? parseInt($stateParams.index, 10) - 1 : 0;
+    const nextIndex = index === portfolio.length - 1 ? 0 : index + 1;
+    const prevIndex = index === 0 ? portfolio.length - 1 : index - 1;
 
     if (isHome) {
       vm.asset = hero[0] || portfolio[index];
@@ -32,10 +32,11 @@ class ViewerController {
     let socialImage = HelperService.thumbnailSrc(vm.asset.thumbnail, 'h:1000;q:90');
 
     if (!/https?:\/\//.test(socialImage)) {
-      socialImage = $window.location.protocol + '//' + $window.location.host + socialImage;
+      socialImage = `${$window.location.protocol}//${$window.location.host}${socialImage}`;
     }
 
-    $rootScope.ogImage = $rootScope.twitterImage = socialImage;
+    $rootScope.ogImage = socialImage;
+    $rootScope.twitterImage = socialImage;
 
     $scope.$on('$stateChangeSuccess', (event, toState) => {
       vm.disableViewer = /profile/.test(toState.name);
@@ -43,7 +44,7 @@ class ViewerController {
 
     $rootScope.viewerSchema = vm.asset.schema;
 
-    let stateChangeStart = $scope.$on('$stateChangeStart', (event, toState) => {
+    const stateChangeStart = $scope.$on('$stateChangeStart', (event, toState) => {
       stateChangeStart();
 
       $rootScope.$broadcast('hjShine:stop');
@@ -64,7 +65,7 @@ class ViewerController {
 
     $rootScope.$broadcast('hjShine:spin');
 
-    let isTouch = Modernizr.touch;
+    const isTouch = $window.Modernizr.touch;
 
     vm.showUI = false;
 
@@ -77,14 +78,14 @@ class ViewerController {
     }
 
     vm.next = () => {
-      $state.go('index.viewer', {index: nextIndex + 1, zoom: vm.zoomLevel});
+      $state.go('index.viewer', { index: nextIndex + 1, zoom: vm.zoomLevel });
     };
 
     vm.prev = () => {
-      $state.go('index.viewer', {index: prevIndex + 1, zoom: vm.zoomLevel});
+      $state.go('index.viewer', { index: prevIndex + 1, zoom: vm.zoomLevel });
     };
 
-    let keydownHandler = (event) => {
+    const keydownHandler = (event) => {
       // if (event.keyCode === 39 || event.keyCode === 40) {
       if (event.keyCode === 39) {
         vm.next();
@@ -113,7 +114,7 @@ class ViewerController {
       let playerReady = false;
 
       $scope.$on('vimeoApi:ready', (event, player) => {
-        let iframe = angular.element(player.element);
+        const iframe = angular.element(player.element);
         // let body = iframe.contents().find('body');
 
         // body.append('<style type="text/css">' + vimeoStyles + '</style>');
@@ -144,7 +145,7 @@ class ViewerController {
      */
 
     if (vm.asset.schema === 'image') {
-      let initImage = () => {
+      const initImage = () => {
         vm.dzi = [$rootScope.assistUrl, $rootScope.slug, vm.asset.fields.image.dzi.dir, vm.asset.fields.image.dzi.fileName].join('/');
       };
 
@@ -155,7 +156,7 @@ class ViewerController {
       });
 
       if (vm.asset.fields.image.crops && vm.asset.fields.image.crops.focus) {
-        let crop = vm.asset.fields.image.crops.focus;
+        const crop = vm.asset.fields.image.crops.focus;
 
         vm.focusPoint = {
           x: crop[0] + ((crop[2] - crop[0]) * 0.5),
@@ -165,15 +166,22 @@ class ViewerController {
         initImage();
 
       } else {
-        HelperService.focusPoint(vm.asset)
-          .then(function (point) {
-            vm.focusPoint = {
-              x: point.x / point.width,
-              y: point.y / point.height,
-            };
+        // HelperService.focusPoint(vm.asset)
+        //   .then((point) => {
+        //     vm.focusPoint = {
+        //       x: point.x / point.width,
+        //       y: point.y / point.height,
+        //     };
 
-            initImage();
-          });
+        //     initImage();
+        //   });
+
+        vm.focusPoint = {
+          x: 0.5,
+          y: 0.5,
+        };
+
+        initImage();
       }
     }
 
