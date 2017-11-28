@@ -64,7 +64,7 @@ export default angular.module('hj.customSeadragon', [])
             vm.openSeadragonOptions = {
               constrainDuringPan: true,
               visibilityRatio: 1,
-              minZoomLevel: isTouch ? 0.6 : 1,
+              minZoomLevel: isTouch ? 0.5 : 1,
               defaultZoomLevel: 1,
               maxZoomPixelRatio: $window.devicePixelRatio / 2,
               homeFillsViewer: true,
