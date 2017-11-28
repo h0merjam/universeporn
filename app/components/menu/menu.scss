@@ -24,7 +24,9 @@ menu {
     transition: opacity 500ms;
 
     &.hidden:not(.show-menu) {
-      opacity: 0;
+      html:not(.touch) & {
+        opacity: 0;
+      }
     }
 
     html.touch body[data-viewer-schema="video"] & {

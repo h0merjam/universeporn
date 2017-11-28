@@ -117,11 +117,12 @@ viewer {
   }
 
   .caption {
-    -webkit-font-smoothing: auto;
-
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 500ms;
+    html:not(.touch) & {
+      -webkit-font-smoothing: auto;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 500ms;
+    }
   }
 
   .viewer[data-schema="video"] {

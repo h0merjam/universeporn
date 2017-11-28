@@ -1,7 +1,7 @@
 {
   "name": "universe.porn",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "engines": {
@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "@homerjam/ace-app-webpack": "^0.2.4",
-    "forever": "^0.15.3"
+    "forever": "^0.15.3",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "@homerjam/ace-angular": "^0.2.3",

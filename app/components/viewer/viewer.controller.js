@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import angular from 'angular';
 // import vimeoStyles from '!!raw-loader!sass-loader!./vimeo.scss';
 
@@ -18,7 +19,7 @@ class ViewerController {
     const prevIndex = index === 0 ? portfolio.length - 1 : index - 1;
 
     if (isHome) {
-      vm.asset = hero[0] || portfolio[index];
+      vm.asset = _.sample(hero) || portfolio[index];
 
     } else {
       vm.asset = portfolio[index];

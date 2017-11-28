@@ -142,7 +142,10 @@ body .cursor {
 
   .icon {
     display: inline-block;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    @include breakpoint(medium) {
+      font-size: 2.5rem;
+    }
     line-height: 10rem;
     text-shadow: 0 2px 5px rgba($black, 0.1);
     transition: transform 0.6s $ease-in-out-quint, color 0.3s;
@@ -165,9 +168,12 @@ body .cursor {
   text-align: center;
 
   p {
-    font-size: 1.2rem;
     letter-spacing: 0.05em;
     line-height: 150%;
+    font-size: 1rem;
+    @include breakpoint(medium) {
+      font-size: 1.2rem;
+    }
   }
 
   span {

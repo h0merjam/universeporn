@@ -2351,7 +2351,7 @@ body .cursor--right {
               transform: translateX(0); }
   .nav .icon {
     display: inline-block;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     line-height: 10rem;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     -webkit-transition: color 0.3s, -webkit-transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
@@ -2359,6 +2359,9 @@ body .cursor--right {
     transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1), color 0.3s;
     transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1), color 0.3s, -webkit-transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
     color: #fff; }
+    @media print, screen and (min-width: 48em) {
+      .nav .icon {
+        font-size: 2.5rem; } }
     html.touch .nav .icon {
       -webkit-transform: translateX(0);
           -ms-transform: translateX(0);
@@ -2374,9 +2377,12 @@ body .cursor--right {
   z-index: 0;
   text-align: center; }
   .caption p {
-    font-size: 1.2rem;
     letter-spacing: 0.05em;
-    line-height: 150%; }
+    line-height: 150%;
+    font-size: 1rem; }
+    @media print, screen and (min-width: 48em) {
+      .caption p {
+        font-size: 1.2rem; } }
   .caption span {
     white-space: nowrap; }
 
@@ -2676,7 +2682,7 @@ viewer {
     viewer .hints .icon-arrow-down {
       -webkit-animation: down 0.8s infinite alternate;
               animation: down 0.8s infinite alternate; }
-  viewer .caption {
+  html:not(.touch) viewer .caption {
     -webkit-font-smoothing: auto;
     pointer-events: none;
     opacity: 0;
@@ -3090,7 +3096,7 @@ menu {
   menu .menu-wrapper {
     -webkit-transition: opacity 500ms;
     transition: opacity 500ms; }
-    menu .menu-wrapper.hidden:not(.show-menu) {
+    html:not(.touch) menu .menu-wrapper.hidden:not(.show-menu) {
       opacity: 0; }
     html.touch body[data-viewer-schema="video"] menu .menu-wrapper {
       opacity: 0 !important; }
