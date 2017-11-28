@@ -1,11 +1,11 @@
 class PortfolioController {
   /* @ngInject */
   constructor ($rootScope, $state, $document, $window, HelperService) {
-    let vm = this;
+    const vm = this;
 
-    let locals = $state.$current.locals.globals;
+    const locals = $state.$current.locals.globals;
 
-    // $rootScope.pageTitle = '';
+    $rootScope.pageTitle = 'Observations';
     // $rootScope.pageDescription = ''
 
     vm.assets = locals.portfolio.fields.assets;
@@ -16,10 +16,10 @@ class PortfolioController {
       }
 
       if (asset.thumbnail.ratio >= 1) {
-        return HelperService.thumbnailSrc(asset.thumbnail, 'w:960;h:720;g:Center;q:80');
+        return HelperService.thumbnailSrc(asset.thumbnail, 'w:960;h:720;q:80', 'landscape', 'center');
       }
 
-      return HelperService.thumbnailSrc(asset.thumbnail, 'w:960;h:1440;g:Center;q:80');
+      return HelperService.thumbnailSrc(asset.thumbnail, 'w:960;h:1440;q:80', 'portrait', 'center');
     };
 
     vm.getImageSrcset = (asset) => {
@@ -27,25 +27,25 @@ class PortfolioController {
         return '';
       }
 
-      let sources = [];
+      const sources = [];
       if (asset.thumbnail.ratio >= 1) {
-        sources.push(`${HelperService.thumbnailSrc(asset.thumbnail, 'w:540;h:405;g:Center;q:80')} 540w`);
-        sources.push(`${HelperService.thumbnailSrc(asset.thumbnail, 'w:960;h:720;g:Center;q:80')} 960w`);
-        sources.push(`${HelperService.thumbnailSrc(asset.thumbnail, 'w:1280;h:960;g:Center;q:80')} 1280w`);
+        sources.push(`${HelperService.thumbnailSrc(asset.thumbnail, 'w:540;h:405;q:80', 'landscape', 'center')} 540w`);
+        sources.push(`${HelperService.thumbnailSrc(asset.thumbnail, 'w:960;h:720;q:80', 'landscape', 'center')} 960w`);
+        sources.push(`${HelperService.thumbnailSrc(asset.thumbnail, 'w:1280;h:960;q:80', 'landscape', 'center')} 1280w`);
       } else {
-        sources.push(`${HelperService.thumbnailSrc(asset.thumbnail, 'w:540;h:810;g:Center;q:80')} 540w`);
-        sources.push(`${HelperService.thumbnailSrc(asset.thumbnail, 'w:960;h:1440;g:Center;q:80')} 960w`);
-        sources.push(`${HelperService.thumbnailSrc(asset.thumbnail, 'w:1280;h:1920;g:Center;q:80')} 1280w`);
+        sources.push(`${HelperService.thumbnailSrc(asset.thumbnail, 'w:540;h:810;q:80', 'portrait', 'center')} 540w`);
+        sources.push(`${HelperService.thumbnailSrc(asset.thumbnail, 'w:960;h:1440;q:80', 'portrait', 'center')} 960w`);
+        sources.push(`${HelperService.thumbnailSrc(asset.thumbnail, 'w:1280;h:1920;q:80', 'portrait', 'center')} 1280w`);
       }
       return sources.join(', ');
     };
 
-    let docHeight = () => {
-      let doc = $document[0];
+    const docHeight = () => {
+      const doc = $document[0];
       return Math.max(
         doc.body.scrollHeight, doc.documentElement.scrollHeight,
         doc.body.offsetHeight, doc.documentElement.offsetHeight,
-        doc.body.clientHeight, doc.documentElement.clientHeight
+        doc.body.clientHeight, doc.documentElement.clientHeight,
       );
     };
 

@@ -37,7 +37,7 @@ body {
   -webkit-text-size-adjust: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility; // zoom: reset;
+  text-rendering: optimizeLegibility;
   font-size: 10px;
   &.no-transitions * {
     transition-duration: 0s !important;
@@ -45,10 +45,10 @@ body {
   color: #222;
   content-zooming: none;
   background-color: $black;
-  &[data-state*=".profile"] {
+  &[data-state*=".profile"],
+  &[data-state*=".viewer"] {
     background-color: $white;
   }
-  transition: background-color 0.4s;
 }
 
 article,
@@ -111,7 +111,10 @@ li {
   color: currentColor;
   margin: 0;
   text-transform: uppercase;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
+  @include breakpoint(medium) {
+    font-size: 1.8rem;
+  }
   @include breakpoint(xlarge) {
     font-size: 2.2rem;
   }
@@ -120,13 +123,12 @@ li {
 p {
   @include sans;
   color: currentColor;
-  font-size: 2rem;
   margin: 0;
-  line-height: 3rem;
   margin-bottom: 3rem;
-  @include breakpoint(xlarge) {
-    font-size: 2.4rem;
-    line-height: 3.6rem;
+  line-height: 150%;
+  font-size: 1.4rem;
+  @include breakpoint(medium) {
+    font-size: 2rem;
   }
   &:last-child {
     margin-bottom: 0;

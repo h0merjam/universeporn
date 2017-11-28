@@ -38,8 +38,8 @@ export default angular.module('hj.customSeadragon', [])
 
             const margin = 80;
             const zoomThrottle = 1000;
-            const animationTime = isTouch ? 0 : 5;
-            const animationTimeQuick = isTouch ? 0 : 1;
+            const animationTime = isTouch ? 1 : 5;
+            const animationTimeQuick = isTouch ? 0.5 : 1;
             const maxZoomModifier = 1;
             const minZoomLevel = 0;
 
@@ -48,17 +48,16 @@ export default angular.module('hj.customSeadragon', [])
 
             let reset;
             let zoom;
-            // let moveHandler;
-            // let wheelHandler;
             let moveHandlerFn;
             let wheelHandlerFn;
             let resetFn;
             let checkLoadedTimeout;
             let wheelTimeout;
 
-            const openSeadragonEl = $element.children();
-
             vm.zoomLevel = vm.zoomLevel || 2;
+            let prevZoomLevel = vm.zoomLevel;
+
+            const openSeadragonEl = $element.children();
 
             const lethargy = new $window.Lethargy();
 
@@ -67,7 +66,7 @@ export default angular.module('hj.customSeadragon', [])
               visibilityRatio: 1,
               minZoomLevel: 1,
               defaultZoomLevel: 1,
-              maxZoomPixelRatio: 0.5,
+              maxZoomPixelRatio: $window.devicePixelRatio / 2,
               homeFillsViewer: true,
               showZoomControl: false,
               showHomeControl: false,
@@ -82,7 +81,7 @@ export default angular.module('hj.customSeadragon', [])
               //   clickToZoom: false,
               // },
               gestureSettingsTouch: {
-                flickEnabled: false,
+                flickEnabled: true,
               },
             };
 
@@ -187,6 +186,11 @@ export default angular.module('hj.customSeadragon', [])
               const container = viewer.viewport.containerSize;
               const content = viewer.viewport._contentSize;
 
+              const scaleX = container.x / container.x;
+              const scaleY = (content.x / content.y) / (container.x / container.y);
+
+              const fillZoom = Math.max(scaleX, scaleY);
+
               const maxZoom = Math.min(content.x / container.x, content.y / container.y) / (($window.devicePixelRatio || 1) * maxZoomModifier);
               const maxZoomLevel = Math.round(maxZoom);
 
@@ -196,6 +200,17 @@ export default angular.module('hj.customSeadragon', [])
 
               $timeout(() => {
                 vm.zoomLevel = Math.max(minZoomLevel, level);
+
+                // skip zoom level if lower than fill zoom
+                if (vm.zoomLevel > 1 && vm.zoomLevel < maxZoomLevel) {
+                  if (vm.zoomLevel < fillZoom) {
+                    if (prevZoomLevel > vm.zoomLevel) {
+                      vm.zoomLevel = 1;
+                    } else {
+                      vm.zoomLevel = Math.ceil(fillZoom) + 1;
+                    }
+                  }
+                }
 
                 if (vm.zoomLevel === maxZoomLevel) {
                   openSeadragonEl.addClass('max-zoom');
@@ -218,12 +233,7 @@ export default angular.module('hj.customSeadragon', [])
                     viewer.viewport.centerSpringY.animationTime = animationTime;
                   });
 
-                  const scaleX = container.x / container.x;
-                  const scaleY = (content.x / content.y) / (container.x / container.y);
-
-                  const zoom = Math.max(scaleX, scaleY);
-
-                  viewer.viewport.zoomTo(zoom);
+                  viewer.viewport.zoomTo(fillZoom);
 
                 } else if (vm.zoomLevel === maxZoomLevel) { // max
                   viewer.viewport.centerSpringX.animationTime = animationTime;
@@ -237,6 +247,8 @@ export default angular.module('hj.customSeadragon', [])
 
                   viewer.viewport.zoomTo(vm.zoomLevel);
                 }
+
+                prevZoomLevel = vm.zoomLevel;
               });
             };
 

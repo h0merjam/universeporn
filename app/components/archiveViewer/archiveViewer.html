@@ -36,10 +36,6 @@
 
           </div>
 
-          <div class="asset__caption">
-            <h4>{{vm.caption}}</h4>
-          </div>
-
         </a>
 
       </div>
@@ -48,6 +44,17 @@
 
   </div>
 
+</div>
+
+<div class="caption">
+  <p>
+    <span>{{vm.assets.entities[0].fields.description}}</span>
+    <br>
+    <span>Credit: <a href="{{vm.assets.entities[0].fields.url}}" target="_blank">{{vm.assets.entities[0].fields.credit}};</a></span>
+    <span>Distance: {{vm.assets.entities[0].fields.distance}} light years;</span>
+    <span>Constellation: {{vm.assets.entities[0].fields.constellation.terms[0].title}};</span>
+    <span>Category: {{vm.assets.entities[0].fields.category.terms[0].title}}</span>
+  </p>
 </div>
 
 <div class="nav nav--next" ng-click="vm.next()">

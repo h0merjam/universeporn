@@ -153,3 +153,28 @@ body .cursor {
     }
   }
 }
+
+.caption {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 0;
+  right: 0;
+  width: 100%;
+  color: $white;
+  z-index: 0;
+  text-align: center;
+
+  p {
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    line-height: 150%;
+  }
+
+  span {
+    white-space: nowrap;
+  }
+}
+
+.page-not-found {
+  color: white;
+}

@@ -103,17 +103,8 @@ archive-viewer {
     }
   }
 
-  .asset__caption {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    padding-top: 2rem;
-    margin: auto;
-
-    * {
-      margin: 0;
-    }
+  .caption {
+    color: $black;
   }
 
   .nav .icon {

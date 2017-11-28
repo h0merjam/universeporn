@@ -16,8 +16,8 @@
           <div ng-if="asset.schema === 'video' && !$root.$isDesktop" class="icon icon-play"></div>
 
           <video ng-if="asset.schema === 'video' && $root.$isDesktop" Xonmouseenter="play()" Xonmouseleave="pause()" autoplay loop muted preload="auto" ng-attr-poster="{{$root.$helper.videoThumbnailUrl(asset.fields.videoClip)}}">
-              <source ng-src="{{asset.fields.videoClip.metadata.zencoder.outputs.mp4Hd.url}}" type="video/mp4">
-              <source ng-src="{{asset.fields.videoClip.metadata.zencoder.outputs.webmHd.url}}" type="video/webm">
+            <source ng-src="{{asset.fields.videoClip.metadata.zencoder.outputs.mp4Hd.url}}" type="video/mp4">
+            <source ng-src="{{asset.fields.videoClip.metadata.zencoder.outputs.webmHd.url}}" type="video/webm">
           </video>
 
         </div>

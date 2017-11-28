@@ -45,6 +45,10 @@ viewer {
     }
   }
 
+  .openseadragon-canvas {
+    outline: none !important;
+  }
+
   .video {
     position: absolute;
     top: 8rem;
@@ -113,23 +117,11 @@ viewer {
   }
 
   .caption {
-    position: absolute;
-    bottom: 2.2rem;
-    left: 0;
-    right: 0;
-    width: 100%;
-    color: $white;
-    z-index: 0;
-    text-align: center;
+    -webkit-font-smoothing: auto;
+
     pointer-events: none;
     opacity: 0;
     transition: opacity 500ms;
-
-    p {
-      font-size: 1.2rem;
-      letter-spacing: 0.05em;
-      line-height: 150%;
-    }
   }
 
   .viewer[data-schema="video"] {

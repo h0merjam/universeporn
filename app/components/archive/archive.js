@@ -16,19 +16,23 @@ const archiveModule = angular.module('archive', [
           archive: (ApiService) => {
             'ngInject';
 
-            return ApiService.entitySearchOne({
-              q: 'schema:archive',
-              children: 1,
-            }).then((archive) => {
-              return archive.fields.assets;
-            });
+            // return ApiService.entitySearchOne({
+            //   q: 'schema:archive',
+            //   children: 1,
+            // }).then(archive => archive.fields.assets);
+
+            return ApiService.entitySearch({
+              q: 'schema:image',
+              sort: '-sort.publishedAt<number>',
+              include_docs: true,
+            }).then(result => result.rows);
           },
         },
         views: {
           content: {
             template: '<archive></archive>',
-          }
-        }
+          },
+        },
       });
 
     $stateProvider
@@ -44,9 +48,9 @@ const archiveModule = angular.module('archive', [
             enter: {
               in: {
                 transition: 'fadeUpDelayed',
-              }
-            }
-          }
+              },
+            },
+          },
         },
       });
 
