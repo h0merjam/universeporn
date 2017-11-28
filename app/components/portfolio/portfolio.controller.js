@@ -16,10 +16,10 @@ class PortfolioController {
       }
 
       if (asset.thumbnail.ratio >= 1) {
-        return HelperService.thumbnailSrc(asset.thumbnail, 'w:960;h:720;q:80', 'landscape', 'center');
+        return HelperService.thumbnailSrc(asset.thumbnail, 'w:1280;h:960;q:80', 'landscape', 'center');
       }
 
-      return HelperService.thumbnailSrc(asset.thumbnail, 'w:960;h:1440;q:80', 'portrait', 'center');
+      return HelperService.thumbnailSrc(asset.thumbnail, 'w:1280;h:1920;q:80', 'portrait', 'center');
     };
 
     vm.getImageSrcset = (asset) => {

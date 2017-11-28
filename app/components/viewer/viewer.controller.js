@@ -30,7 +30,7 @@ class ViewerController {
     // $rootScope.pageDescription = '';
     }
 
-    let socialImage = HelperService.thumbnailSrc(vm.asset.thumbnail, 'h:1000;q:90');
+    let socialImage = HelperService.thumbnailSrc(vm.asset.thumbnail, 'w:1280;h:960;q:80');
 
     if (!/https?:\/\//.test(socialImage)) {
       socialImage = `${$window.location.protocol}//${$window.location.host}${socialImage}`;
