@@ -2228,7 +2228,7 @@ p {
   margin: 0;
   margin-bottom: 3rem;
   line-height: 150%;
-  font-size: 1.4rem; }
+  font-size: 1.2rem; }
   @media print, screen and (min-width: 48em) {
     p {
       font-size: 2rem; } }
@@ -2298,7 +2298,10 @@ p {
     transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
     transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1), -webkit-transform 0.8s cubic-bezier(0.86, 0, 0.07, 1); }
   .close img {
-    height: 2rem; }
+    height: 1rem; }
+    @media print, screen and (min-width: 48em) {
+      .close img {
+        height: 2rem; } }
 
 .images-loaded {
   opacity: 0; }
@@ -2827,7 +2830,7 @@ profile {
   profile h2, profile h3, profile h4, profile h5 {
     font-weight: 700;
     margin-bottom: 1rem;
-    font-size: 1rem; }
+    font-size: 0.8rem; }
     @media print, screen and (min-width: 48em) {
       profile h2, profile h3, profile h4, profile h5 {
         font-size: 1.4rem; } }
@@ -2965,11 +2968,14 @@ portfolio {
     text-align: center;
     cursor: pointer; }
     portfolio .scroll-prompt .icon {
-      font-size: 3rem;
+      font-size: 1.5rem;
       color: #fff;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       -webkit-animation: bounce 2s infinite ease-in-out;
               animation: bounce 2s infinite ease-in-out; }
+      @media print, screen and (min-width: 48em) {
+        portfolio .scroll-prompt .icon {
+          font-size: 2.5rem; } }
     portfolio .scroll-prompt .flip__wrapper {
       -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
       transition: -webkit-transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);

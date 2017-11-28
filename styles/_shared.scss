@@ -70,7 +70,10 @@ html {
   }
 
   img {
-    height: 2rem;
+    height: 1rem;
+    @include breakpoint(medium) {
+      height: 2rem;
+    }
   }
 }
 

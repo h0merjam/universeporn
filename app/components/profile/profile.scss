@@ -28,7 +28,7 @@ profile {
   h2, h3, h4, h5 {
     font-weight: 700;
     margin-bottom: 1rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     @include breakpoint(medium) {
       font-size: 1.4rem;
     }
