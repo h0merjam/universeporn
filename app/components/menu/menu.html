@@ -1,5 +1,5 @@
 <div class="menu-wrapper" ng-mouseover="vm.showMenu = true" ng-mouseleave="vm.showMenu = false" ng-class="{
-  'hidden': vm.hidden,
+  'idle': $root.idle,
   'show-menu': vm.showMenu,
 }">
 
@@ -25,7 +25,8 @@
 
         <li ui-sref-active="active">
           <a ng-focus="vm.showMenu = true" ng-blur="vm.showMenu = false" ui-sref="index.portfolio">
-            <span xx-hj-shine>Back</span>
+              <!-- <span xx-hj-shine>Back</span> -->
+              <span xx-hj-shine>Observations</span>
           </a>
         </li>
 

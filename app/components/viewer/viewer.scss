@@ -149,19 +149,19 @@ viewer {
   }
 
   .viewer[data-zoom-level="0"] {
+    html:not(.touch) app:not(.idle) & {
+      .icon {
+        // color: $black;
+        transform: translateX(0);
+      }
 
-    .icon {
-      // color: $black;
-      transform: translateX(0);
+      .caption {
+        pointer-events: auto;
+        z-index: 99;
+        opacity: 1;
+        transition-delay: 250ms;
+      }
     }
-
-    .caption {
-      pointer-events: auto;
-      z-index: 99;
-      opacity: 1;
-      transition-delay: 250ms;
-    }
-
   }
 
   .viewer.show-ui {

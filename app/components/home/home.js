@@ -17,7 +17,7 @@ const homeModule = angular.module('home', [
         },
         content: {
           template: '<viewer></viewer>',
-        }
+        },
       },
     });
 
@@ -34,9 +34,15 @@ const homeModule = angular.module('home', [
             enter: {
               in: {
                 transition: 'fadeUpDelayed',
-              }
-            }
-          }
+              },
+            },
+            leave: {
+              out: {
+                transition: 'fadeNoDelay',
+                priority: 99,
+              },
+            },
+          },
         },
       });
 

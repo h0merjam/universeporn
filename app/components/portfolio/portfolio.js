@@ -48,6 +48,12 @@ const portfolioModule = angular.module('portfolio', [
                 transition: 'fadeUpDelayed',
               },
             },
+            leave: {
+              out: {
+                transition: 'fadeNoDelay',
+                priority: 99,
+              },
+            },
           },
         },
       });

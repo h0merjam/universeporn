@@ -178,7 +178,7 @@ portfolio {
     }
 
     .flip__wrapper {
-      transition: transform 0.6s $ease-in-out-quint;
+      transition: transform 0.6s $easeInOutQuint;
       transform-origin: 50% 50%;
     }
 

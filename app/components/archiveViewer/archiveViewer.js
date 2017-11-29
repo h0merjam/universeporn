@@ -23,7 +23,8 @@ const archiveViewerModule = angular.module('archiveViewer', [
               in: {
                 transition: ($state, $stateParams) => {
                   'ngInject';
-                  let prevState = $state.history[$state.history.length - 1];
+
+                  const prevState = $state.history[$state.history.length - 1];
 
                   if (prevState.name !== 'index.archive.viewer') {
                     return 'fadeUpDelayed';
@@ -43,10 +44,11 @@ const archiveViewerModule = angular.module('archiveViewer', [
               out: {
                 transition: ($state, $stateParams) => {
                   'ngInject';
-                  let prevState = $state.history[$state.history.length - 1];
+
+                  const prevState = $state.history[$state.history.length - 1];
 
                   if ($state.current.name !== 'index.archive.viewer') {
-                    return 'fade';
+                    return 'fadeNoDelay';
                   }
 
                   return 'none';

@@ -100,7 +100,7 @@ angular.module('app', [
     });
 
     gsapifyRouterProvider.transition('fadeNoDelay', {
-      duration: 0.4,
+      duration: 0.2,
       css: {
         opacity: 0,
       },
@@ -119,7 +119,7 @@ angular.module('app', [
       delay: 0.4,
       css: {
         opacity: 0,
-        y: 20,
+        // y: 20,
       },
     });
 
@@ -163,14 +163,14 @@ angular.module('app', [
         app: {},
       },
       data: {
-        'gsapifyRouter.overlay': {
-          leave: {
-            out: {
-              transition: 'fadeNoDelay',
-              priority: 99,
-            },
-          },
-        },
+        // 'gsapifyRouter.overlay': {
+        //   leave: {
+        //     out: {
+        //       transition: 'fadeNoDelay',
+        //       priority: 99,
+        //     },
+        //   },
+        // },
       },
     });
 
@@ -299,6 +299,28 @@ angular.module('app', [
       }
     });
 
+    // Idle
+
+    $rootScope.idle = false;
+
+    let idleTimeout;
+
+    const resetIdle = () => {
+      $timeout(() => {
+        $rootScope.idle = false;
+      });
+
+      $timeout.cancel(idleTimeout);
+
+      idleTimeout = $timeout(() => {
+        $rootScope.idle = true;
+      }, 5000);
+    };
+
+    $document.on('click', resetIdle);
+    $document.on('mousemove', resetIdle);
+    $document.on('keypress', resetIdle);
+
     // Favicon
 
     const faviconEl = $document[0].querySelector('link[rel="shortcut icon"]');
@@ -325,6 +347,15 @@ angular.module('app', [
       $timeout(toggleFavicon, faviconCounter === 8 ? 500 : 200);
     };
 
-    $timeout(toggleFavicon, 2000);
+    if (!$window.Modernizr.mobile) {
+      $timeout(() => {
+        const icons = $document[0].querySelectorAll('link[rel="icon"]');
+        angular.forEach(icons, (icon) => {
+          icon.parentNode.removeChild(icon);
+        });
+
+        toggleFavicon();
+      }, 2000);
+    }
 
   });

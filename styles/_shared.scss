@@ -66,7 +66,7 @@ html {
 
   &:hover img {
     transform: rotate(90deg);
-    transition: transform 0.8s $ease-in-out-quint;
+    transition: transform 0.8s $easeInOutQuint;
   }
 
   img {
@@ -151,7 +151,7 @@ body .cursor {
     }
     line-height: 10rem;
     text-shadow: 0 2px 5px rgba($black, 0.1);
-    transition: transform 0.6s $ease-in-out-quint, color 0.3s;
+    transition: transform 0.6s $easeInOutQuint, color 0.3s;
     color: $white;
 
     html.touch & {

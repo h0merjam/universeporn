@@ -50,6 +50,12 @@ const archiveModule = angular.module('archive', [
                 transition: 'fadeUpDelayed',
               },
             },
+            leave: {
+              out: {
+                transition: 'fadeNoDelay',
+                priority: 99,
+              },
+            },
           },
         },
       });

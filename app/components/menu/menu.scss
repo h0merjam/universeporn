@@ -58,8 +58,8 @@ menu {
   .menu-wrapper {
     transition: opacity 500ms;
 
-    &.hidden:not(.show-menu) {
-      html:not(.touch) & {
+    &:not(.show-menu) {
+      html:not(.touch) app.idle & {
         opacity: 0;
       }
     }
@@ -149,6 +149,10 @@ menu {
 
     &.active {
       // display: none;
+
+      * {
+        border-bottom: 1px solid currentColor;
+      }
     }
   }
 

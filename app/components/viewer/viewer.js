@@ -37,6 +37,12 @@ const viewerModule = angular.module('viewer', [
                 transition: 'fadeUpDelayed',
               },
             },
+            leave: {
+              out: {
+                transition: 'fadeNoDelay',
+                priority: 99,
+              },
+            },
           },
         },
       });
