@@ -449,6 +449,7 @@ body {
   font-weight: normal;
   line-height: 1.5;
   color: #000;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
 img {
@@ -2136,7 +2137,7 @@ html.loading {
 body {
   -webkit-text-size-adjust: none;
   -webkit-tap-highlight-color: transparent;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: auto;
   text-rendering: optimizeLegibility;
   font-size: 10px;
   color: #222;
@@ -2145,7 +2146,7 @@ body {
   body.no-transitions * {
     -webkit-transition-duration: 0s !important;
             transition-duration: 0s !important; }
-  body[data-state*=".profile"], body[data-state*=".viewer"] {
+  body[data-state*="profile"], body[data-state*="archive.viewer"] {
     background-color: #fff; }
 
 article,
@@ -2194,13 +2195,13 @@ h4,
 h5,
 h6,
 li {
-  font-family: 'Univers', Helvetica, sans-serif;
+  font-family: 'UniversExt', Helvetica, sans-serif;
   font-weight: 400;
-  letter-spacing: 0.13em;
   color: currentColor;
   margin: 0;
   text-transform: uppercase;
-  font-size: 1.4rem; }
+  letter-spacing: 0.08em;
+  font-size: 1.2rem; }
   @media print, screen and (min-width: 48em) {
     h1,
     h2,
@@ -2221,13 +2222,13 @@ li {
       font-size: 2.2rem; } }
 
 p {
-  font-family: 'Univers', Helvetica, sans-serif;
+  font-family: 'UniversExt', Helvetica, sans-serif;
   font-weight: 400;
-  letter-spacing: 0.13em;
   color: currentColor;
   margin: 0;
   margin-bottom: 3rem;
   line-height: 150%;
+  letter-spacing: 0.05em;
   font-size: 1.2rem; }
   @media print, screen and (min-width: 48em) {
     p {
@@ -2376,10 +2377,12 @@ body .cursor--right {
   left: 0;
   right: 0;
   width: 100%;
+  padding: 0 1rem;
   color: #fff;
   z-index: 0;
   text-align: center; }
   .caption p {
+    font-family: 'UniversMono', monospace;
     letter-spacing: 0.05em;
     line-height: 150%;
     font-size: 1rem; }
@@ -2686,7 +2689,6 @@ viewer {
       -webkit-animation: down 0.8s infinite alternate;
               animation: down 0.8s infinite alternate; }
   html:not(.touch) viewer .caption {
-    -webkit-font-smoothing: auto;
     pointer-events: none;
     opacity: 0;
     -webkit-transition: opacity 500ms;
@@ -3097,8 +3099,34 @@ menu {
       -ms-user-select: none;
           user-select: none;
   z-index: 99; }
+  @media screen and (max-width: 47.9375em) {
+    menu {
+      top: 2rem;
+      bottom: auto;
+      width: 100%;
+      height: auto; } }
   html.touch body[data-viewer-schema="video"] menu {
     pointer-events: none; }
+  menu .burger {
+    position: absolute;
+    top: 0.2rem;
+    right: 2.5rem;
+    height: 0.6rem;
+    display: none; }
+    @media screen and (max-width: 47.9375em) {
+      menu .burger {
+        display: block; } }
+    menu .burger span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-family: 'UniversExt', Helvetica, sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem; }
+      menu .burger span:nth-child(2) {
+        top: 50%; }
+      menu .burger span:nth-child(3) {
+        top: 100%; }
   menu .menu-wrapper {
     -webkit-transition: opacity 500ms;
     transition: opacity 500ms; }
@@ -3106,21 +3134,24 @@ menu {
       opacity: 0; }
     html.touch body[data-viewer-schema="video"] menu .menu-wrapper {
       opacity: 0 !important; }
-    menu .menu-wrapper.show-menu h1 {
+    menu .menu-wrapper.show-menu h1, menu .menu-wrapper.show-menu .burger {
       opacity: 0;
       -webkit-transition-delay: 0s;
               transition-delay: 0s; }
-    menu .menu-wrapper.show-menu ul {
+    menu .menu-wrapper.show-menu .table {
       opacity: 1;
       -webkit-transition-delay: 0.2s;
               transition-delay: 0.2s; }
-    menu .menu-wrapper.show-menu:not(.ng-animate) ul {
+    menu .menu-wrapper.show-menu:not(.ng-animate) .table {
       pointer-events: auto; }
   menu .table {
     position: absolute;
     top: 0;
     left: 0; }
-  menu h1, menu ul {
+    @media screen and (max-width: 47.9375em) {
+      menu .table .cell {
+        vertical-align: top; } }
+  menu h1, menu .table, menu .burger {
     -webkit-transition: opacity 0.2s 0.2s;
     transition: opacity 0.2s 0.2s; }
   menu h1 {
@@ -3129,17 +3160,23 @@ menu {
     left: 0;
     width: 100%;
     line-height: 10rem; }
-  menu ul {
+    @media screen and (max-width: 47.9375em) {
+      menu h1 {
+        line-height: 3rem; } }
+  menu .table {
     opacity: 0;
     -webkit-transition-delay: 0s;
             transition-delay: 0s;
     pointer-events: none; }
   menu h1, menu li {
-    letter-spacing: 0.2em; }
+    letter-spacing: 0.15em; }
     html.touch menu h1, html.touch menu li {
       text-shadow: 0 0 15px rgba(0, 0, 0, 0.2); }
   menu li {
     line-height: 3rem; }
+    @media screen and (max-width: 47.9375em) {
+      menu li {
+        margin: 0 0.5rem; } }
     @media screen and (min-width: 90em) {
       menu li {
         line-height: 3.5rem; } }
