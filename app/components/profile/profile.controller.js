@@ -1,9 +1,9 @@
 class ProfileController {
   /* @ngInject */
   constructor($rootScope, $state) {
-    let vm = this;
+    const vm = this;
 
-    let locals = $state.$current.locals.globals;
+    const locals = $state.$current.locals.globals;
 
     // $rootScope.pageTitle = '';
     // $rootScope.pageDescription = '';

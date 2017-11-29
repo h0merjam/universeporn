@@ -16,8 +16,43 @@ menu {
   user-select: none;
   z-index: 99;
 
+  @include breakpoint(small only) {
+    top: 2rem;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+  }
+
   html.touch body[data-viewer-schema="video"] & {
     pointer-events: none;
+  }
+
+  .burger {
+    position: absolute;
+    top: 0.2rem;
+    right: 2.5rem;
+    height: 0.6rem;
+    display: none;
+
+    @include breakpoint(small only) {
+      display: block;
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      @include sans;
+      font-size: 1.2rem;
+
+      &:nth-child(2) {
+        top: 50%;
+      }
+      &:nth-child(3) {
+        top: 100%;
+      }
+    }
   }
 
   .menu-wrapper {
@@ -34,17 +69,17 @@ menu {
     }
 
     &.show-menu {
-      h1 {
+      h1, .burger {
         opacity: 0;
         transition-delay: 0s;
       }
-      ul {
+      .table {
         opacity: 1;
         transition-delay: 0.2s;
       }
 
       &:not(.ng-animate) {
-        ul {
+        .table {
           pointer-events: auto;
         }
       }
@@ -61,9 +96,15 @@ menu {
     position: absolute;
     top: 0;
     left: 0;
+
+    .cell {
+      @include breakpoint(small only) {
+        vertical-align: top;
+      }
+    }
   }
 
-  h1, ul {
+  h1, .table, .burger {
     transition: opacity 0.2s 0.2s;
   }
 
@@ -73,16 +114,21 @@ menu {
     left: 0;
     width: 100%;
     line-height: 10rem;
+
+    @include breakpoint(small only) {
+      line-height: 3rem;
+    }
   }
 
-  ul {
+  .table {
     opacity: 0;
     transition-delay: 0s;
     pointer-events: none;
   }
 
   h1, li {
-    letter-spacing: 0.2em;
+    // -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.15em;
 
     html.touch & {
       text-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -91,6 +137,11 @@ menu {
 
   li {
     line-height: 3rem;
+
+    @include breakpoint(small only) {
+      // display: inline-block;
+      margin: 0 0.5rem;
+    }
 
     @include breakpoint(xlarge) {
       line-height: 3.5rem;

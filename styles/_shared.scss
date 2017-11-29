@@ -166,11 +166,13 @@ body .cursor {
   left: 0;
   right: 0;
   width: 100%;
+  padding: 0 1rem;
   color: $white;
   z-index: 0;
   text-align: center;
 
   p {
+    @include mono;
     letter-spacing: 0.05em;
     line-height: 150%;
     font-size: 1rem;

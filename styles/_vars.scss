@@ -42,18 +42,19 @@ $orange: rgb(212, 98, 42);
 /* Fonts */
 
 @mixin sans {
-    font-family: 'Univers', Helvetica, sans-serif;
+    font-family: 'UniversExt', Helvetica, sans-serif;
     font-weight: 400;
-    letter-spacing: 0.13em;
+    // letter-spacing: 0.1em;
 }
 
 @mixin sans-bold {
-    font-family: 'Univers', Helvetica, sans-serif;
+    font-family: 'UniversExt', Helvetica, sans-serif;
     font-weight: 700;
-}
+    // letter-spacing: 0.1em;
+  }
 
 @mixin mono {
-    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-family: 'UniversMono', monospace;
 }
 
 /* Golden ratio */

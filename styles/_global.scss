@@ -36,7 +36,8 @@ html.loading {
 body {
   -webkit-text-size-adjust: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-font-smoothing: antialiased;
+  // -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: auto;
   text-rendering: optimizeLegibility;
   font-size: 10px;
   &.no-transitions * {
@@ -45,8 +46,8 @@ body {
   color: #222;
   content-zooming: none;
   background-color: $black;
-  &[data-state*=".profile"],
-  &[data-state*=".viewer"] {
+  &[data-state*="profile"],
+  &[data-state*="archive.viewer"] {
     background-color: $white;
   }
 }
@@ -111,7 +112,8 @@ li {
   color: currentColor;
   margin: 0;
   text-transform: uppercase;
-  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  font-size: 1.2rem;
   @include breakpoint(medium) {
     font-size: 1.8rem;
   }
@@ -126,6 +128,7 @@ p {
   margin: 0;
   margin-bottom: 3rem;
   line-height: 150%;
+  letter-spacing: 0.05em;
   font-size: 1.2rem;
   @include breakpoint(medium) {
     font-size: 2rem;
