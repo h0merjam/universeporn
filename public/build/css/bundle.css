@@ -2901,9 +2901,9 @@ portfolio {
               transition-delay: 0.3s;
       opacity: 1; }
   html.no-touch:not(.ie9) portfolio a:hover img {
-    -webkit-transform: scale(1.1) !important;
-        -ms-transform: scale(1.1) !important;
-            transform: scale(1.1) !important; }
+    -webkit-transform: scale(1.25) !important;
+        -ms-transform: scale(1.25) !important;
+            transform: scale(1.25) !important; }
   portfolio .asset__wrapper {
     position: relative;
     width: 100%;
