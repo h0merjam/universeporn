@@ -5,6 +5,8 @@ import 'script-loader!detectizr';
 
 import * as eases from 'eases';
 
+import fscreen from 'fscreen';
+
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import angularSanitize from 'angular-sanitize';
@@ -373,5 +375,7 @@ angular.module('app', [
     setVars();
 
     window.addEventListener('orientationchange', setVars);
+    fscreen.addEventListener('fullscreenchange', setVars);
+    $rootScope.$on('gsapifyRouter:enterSuccess', setVars);
 
   });
