@@ -162,11 +162,11 @@ body .cursor {
 
 .caption {
   position: absolute;
-  bottom: 2.2rem;
+  bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
-  padding: 0 1rem;
+  padding: 1rem 0 3rem;
   color: $white;
   z-index: 0;
   text-align: center;
@@ -183,6 +183,24 @@ body .cursor {
 
   span {
     white-space: nowrap;
+  }
+
+  transition: transform 0.6s $easeInOutQuint, opacity 0.4s;
+
+  html:not(.touch) .viewer & {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  html:not(.touch) body:not([data-state="index.home"]) .viewer.show-ui &,
+  html:not(.touch) body:not(.idle) .viewer[data-zoom-level="0"] &,
+  html:not(.touch) body.cursor--bottom:not(.idle) & {
+    pointer-events: auto;
+    z-index: 99;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s, 0.2s;
   }
 }
 

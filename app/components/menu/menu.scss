@@ -9,8 +9,8 @@ menu {
   margin: auto;
   padding: 0 !important;
   -webkit-padding-start: 0;
-  width: 24rem;
-  height: 10rem;
+  width: 28rem;
+  height: 12rem;
   text-align: center;
   color: $white;
   user-select: none;
@@ -59,7 +59,7 @@ menu {
     transition: opacity 500ms;
 
     &:not(.show-menu) {
-      html:not(.touch) app.idle & {
+      html:not(.touch) body.idle & {
         opacity: 0;
       }
     }
@@ -113,7 +113,7 @@ menu {
     top: 0;
     left: 0;
     width: 100%;
-    line-height: 10rem;
+    line-height: 12rem;
 
     @include breakpoint(small only) {
       line-height: 3rem;

@@ -42,6 +42,12 @@
           </a>
         </li>
 
+        <li ng-if="vm.fullscreenEnabled">
+          <a ng-focus="vm.showMenu = true" ng-blur="vm.showMenu = false" ng-click="vm.toggleFullScreen()">
+            <span xx-hj-shine>{{ vm.isFullScreen ? 'Exit Fullscreen' : 'Fullscreen' }}</span>
+          </a>
+        </li>
+
       </ul>
 
     </div>

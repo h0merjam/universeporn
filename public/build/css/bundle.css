@@ -2373,14 +2373,18 @@ body .cursor--right {
 
 .caption {
   position: absolute;
-  bottom: 2.2rem;
+  bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
-  padding: 0 1rem;
+  padding: 1rem 0 3rem;
   color: #fff;
   z-index: 0;
-  text-align: center; }
+  text-align: center;
+  -webkit-transition: opacity 0.4s, -webkit-transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: opacity 0.4s, -webkit-transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s, -webkit-transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
   .caption p {
     font-family: 'UniversMono', monospace;
     letter-spacing: 0.05em;
@@ -2391,6 +2395,23 @@ body .cursor--right {
         font-size: 1.2rem; } }
   .caption span {
     white-space: nowrap; }
+  html:not(.touch) .viewer .caption {
+    pointer-events: none;
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+        -ms-transform: translateY(100%);
+            transform: translateY(100%); }
+  html:not(.touch) body:not([data-state="index.home"]) .viewer.show-ui .caption,
+  html:not(.touch) body:not(.idle) .viewer[data-zoom-level="0"] .caption,
+  html:not(.touch) body.cursor--bottom:not(.idle) .caption {
+    pointer-events: auto;
+    z-index: 99;
+    opacity: 1;
+    -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-transition-delay: 0s, 0.2s;
+            transition-delay: 0s, 0.2s; }
 
 .page-not-found {
   color: white; }
@@ -2439,10 +2460,6 @@ archive-viewer {
             align-items: center;
     height: -webkit-calc(100vh - 16rem);
     height: calc(100vh - 16rem); }
-    @media (max-width: 47.9375em) and (orientation: landscape) {
-      archive-viewer .flex__wrapper {
-        height: -webkit-calc(100vh - 8rem);
-        height: calc(100vh - 8rem); } }
   archive-viewer .asset__wrapper {
     position: relative;
     display: block;
@@ -2488,12 +2505,7 @@ archive-viewer {
     left: 0;
     right: 0;
     margin: auto;
-    padding-bottom: 2.5rem; }
-    @media (max-width: 47.9375em) {
-      archive-viewer .close {
-        padding-bottom: 1rem; }
-        archive-viewer .close img {
-          height: 1.5rem; } }
+    padding-bottom: 3rem; }
   archive-viewer .caption {
     color: #000; }
   archive-viewer .nav .icon {
@@ -2604,7 +2616,10 @@ viewer {
   display: block;
   background: #000;
   width: 100%;
+  width: 100vw;
   height: 100%;
+  height: 100vh;
+  overflow: hidden;
   -webkit-transition: opacity 0.4s, -webkit-filter 0.4s;
   transition: opacity 0.4s, -webkit-filter 0.4s;
   transition: filter 0.4s, opacity 0.4s;
@@ -2688,11 +2703,6 @@ viewer {
     viewer .hints .icon-arrow-down {
       -webkit-animation: down 0.8s infinite alternate;
               animation: down 0.8s infinite alternate; }
-  html:not(.touch) viewer .caption {
-    pointer-events: none;
-    opacity: 0;
-    -webkit-transition: opacity 500ms;
-    transition: opacity 500ms; }
   viewer .viewer[data-schema="video"] {
     background: #000; }
     html.no-touch viewer .viewer[data-schema="video"] iframe {
@@ -2704,16 +2714,10 @@ viewer {
       -webkit-transform: translateX(0);
           -ms-transform: translateX(0);
               transform: translateX(0); }
-  html:not(.touch) app:not(.idle) viewer .viewer[data-zoom-level="0"] .icon {
+  html:not(.touch) body:not(.idle) viewer .viewer[data-zoom-level="0"] .icon {
     -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
             transform: translateX(0); }
-  html:not(.touch) app:not(.idle) viewer .viewer[data-zoom-level="0"] .caption {
-    pointer-events: auto;
-    z-index: 99;
-    opacity: 1;
-    -webkit-transition-delay: 250ms;
-            transition-delay: 250ms; }
   viewer .viewer.show-ui .icon {
     -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
@@ -3090,8 +3094,8 @@ menu {
   margin: auto;
   padding: 0 !important;
   -webkit-padding-start: 0;
-  width: 24rem;
-  height: 10rem;
+  width: 28rem;
+  height: 12rem;
   text-align: center;
   color: #fff;
   -webkit-user-select: none;
@@ -3130,7 +3134,7 @@ menu {
   menu .menu-wrapper {
     -webkit-transition: opacity 500ms;
     transition: opacity 500ms; }
-    html:not(.touch) app.idle menu .menu-wrapper:not(.show-menu) {
+    html:not(.touch) body.idle menu .menu-wrapper:not(.show-menu) {
       opacity: 0; }
     html.touch body[data-viewer-schema="video"] menu .menu-wrapper {
       opacity: 0 !important; }
@@ -3159,7 +3163,7 @@ menu {
     top: 0;
     left: 0;
     width: 100%;
-    line-height: 10rem; }
+    line-height: 12rem; }
     @media screen and (max-width: 47.9375em) {
       menu h1 {
         line-height: 3rem; } }

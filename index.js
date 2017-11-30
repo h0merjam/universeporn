@@ -14,7 +14,12 @@ AceApp.app({
   scripts: [],
 
   htmlAttr: 'ng-class="{loading: $root.loading}"',
-  bodyAttr: 'data-state="{{$root.$state.current.name}}" data-viewer-schema="{{$root.viewerSchema}}" hj-split-cursor="{left: 0.1, right: 0.1}"',
+  bodyAttr: `
+    data-state="{{$root.$state.current.name}}"
+    data-viewer-schema="{{$root.viewerSchema}}"
+    ng-class="{ idle: $root.idle }"
+    hj-split-cursor="{left: 0.1, right: 0.1, bottom: 0.1}"
+  `,
 
   themeColor: '#000000',
 
