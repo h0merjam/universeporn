@@ -358,4 +358,20 @@ angular.module('app', [
       }, 2000);
     }
 
+    // Viewport vars
+
+    const setVars = () => {
+      setTimeout(() => {
+        const availableHeight = screen.height - (screen.height - window.innerHeight);
+
+        // const isPortrait = window.matchMedia('(orientation: portrait)').matches;
+
+        document.documentElement.style.setProperty('--vh', `${availableHeight}px`);
+      }, 500);
+    };
+
+    setVars();
+
+    window.addEventListener('orientationchange', setVars);
+
   });

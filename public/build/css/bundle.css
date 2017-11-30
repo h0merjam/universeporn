@@ -2616,9 +2616,9 @@ viewer {
   display: block;
   background: #000;
   width: 100%;
-  width: 100vw;
   height: 100%;
   height: 100vh;
+  height: var(--vh);
   overflow: hidden;
   -webkit-transition: opacity 0.4s, -webkit-filter 0.4s;
   transition: opacity 0.4s, -webkit-filter 0.4s;
