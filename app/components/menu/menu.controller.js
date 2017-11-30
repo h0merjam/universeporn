@@ -7,11 +7,11 @@ class MenuController {
 
     vm.fullscreenEnabled = fscreen.fullscreenEnabled;
 
-    vm.isFullScreen = false;
+    vm.isFullScreen = !!fscreen.fullscreenElement;
 
     fscreen.addEventListener('fullscreenchange', () => {
       $scope.$apply(() => {
-        vm.isFullScreen = fscreen.fullscreenElement;
+        vm.isFullScreen = !!fscreen.fullscreenElement;
       });
     });
 
