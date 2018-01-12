@@ -158,7 +158,7 @@ angular.module('app', [
         }).then(profile => profile.fields.text),
         portfolio: ApiService => ApiService.entitySearchOne({
           q: 'schema:portfolio',
-          children: 1,
+          children: 2,
         }),
       },
       views: {
