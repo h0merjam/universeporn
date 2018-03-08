@@ -1,7 +1,7 @@
 {
   "name": "universe.porn",
   "private": true,
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "",
   "main": "index.js",
   "engines": {
@@ -14,12 +14,12 @@
     "deploy": "gulp build; gulp bump; git add --all; git commit --all --message \"deploy\"; git remote | xargs -L1 git push --all"
   },
   "dependencies": {
-    "@homerjam/ace-app-webpack": "^0.2.5",
+    "@homerjam/ace-app-webpack": "^0.2.6",
     "forever": "^0.15.3"
   },
   "devDependencies": {
-    "@homerjam/ace-angular": "^0.2.3",
-    "@homerjam/ace-dev-webpack": "^0.2.3",
+    "@homerjam/ace-angular": "^0.3.2",
+    "@homerjam/ace-dev-webpack": "^0.2.4",
     "angular": "^1.6.7",
     "angular-animate": "^1.6.7",
     "angular-columnify": "^0.1.20",
