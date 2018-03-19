@@ -21,9 +21,7 @@ import angularGsapifyRouter from 'angular-gsapify-router';
 import angularScroll from 'angular-scroll';
 import angularImagesLoaded from 'angular-images-loaded';
 
-import 'script-loader!scrollmagic';
-import 'script-loader!scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
-import 'script-loader!scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
+import ScrollWizardry from 'expose-loader?ScrollWizardry!scrollwizardry';
 import angularScrollMagic from 'angular-scroll-magic';
 
 import viewportUnitsBuggyfillHacks from 'viewport-units-buggyfill/viewport-units-buggyfill.hacks';
