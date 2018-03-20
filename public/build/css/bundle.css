@@ -60,7 +60,7 @@ menu {
   menu .menu-wrapper {
     -webkit-transition: opacity 500ms;
     transition: opacity 500ms; }
-    html:not(.touch) body.idle menu .menu-wrapper:not(.show-menu) {
+    html:not(.touch) body.idle menu .menu-wrapper:not(.show-menu):not(.demo) {
       opacity: 0; }
     html.touch body[data-viewer-schema="video"] menu .menu-wrapper {
       opacity: 0 !important; }
