@@ -34,6 +34,7 @@
     "bourbon": "^4.3.4",
     "dotenv": "^5.0.1",
     "eases": "^1.0.8",
+    "eslint-config-airbnb-base": "^12.1.0",
     "foundation-sites": "^6.4.3",
     "fscreen": "^1.0.2",
     "hamsterjs": "^1.1.2",

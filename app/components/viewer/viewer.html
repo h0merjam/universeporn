@@ -9,7 +9,8 @@
       dzi="vm.dzi"
       focus-point="vm.focusPoint"
       zoom-level="vm.zoomLevel"
-      disabled="vm.disableViewer"
+      min-zoom-level="vm.demo ? 1 : 0"
+      wheel-enabled="!vm.demo && vm.wheelEnabled"
       ></hj-custom-seadragon>
 
   </span>

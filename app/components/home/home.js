@@ -10,7 +10,7 @@ const homeModule = angular.module('home', [
     'ngInject';
 
     $stateProvider.state('index.home', {
-      url: '?zoom',
+      url: '?zoom&demo&hero',
       views: {
         overlay: {
           template: '<menu></menu>',

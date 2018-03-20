@@ -58,7 +58,7 @@ menu {
   .menu-wrapper {
     transition: opacity 500ms;
 
-    &:not(.show-menu) {
+    &:not(.show-menu):not(.demo) {
       html:not(.touch) body.idle & {
         opacity: 0;
       }

@@ -1,9 +1,14 @@
-<div class="menu-wrapper" ng-mouseover="vm.showMenu = true" ng-mouseleave="vm.showMenu = false" ng-class="{
-  'idle': $root.idle,
-  'show-menu': vm.showMenu,
-}">
+<div class="menu-wrapper"
+  ng-mouseover="vm.showMenu = vm.demo ? false : true"
+  ng-mouseleave="vm.showMenu = false"
+  ng-class="{
+    'idle': $root.idle,
+    'show-menu': vm.showMenu,
+    'demo': vm.demo,
+  }"
+>
 
-  <h1 xx-hj-shine>Universe Porn</h1>
+  <h1 xxx-hj-shine>Universe Porn</h1>
 
   <div class="burger">
     <span>&mdash;</span>
@@ -19,32 +24,32 @@
 
         <li ui-sref-active="active">
           <a ng-focus="vm.showMenu = true" ng-blur="vm.showMenu = false" ui-sref="index.portfolio">
-            <span xx-hj-shine>Observations</span>
+            <span xxx-hj-shine>Observations</span>
           </a>
         </li>
 
         <li ui-sref-active="active">
           <a ng-focus="vm.showMenu = true" ng-blur="vm.showMenu = false" ui-sref="index.portfolio">
-              <!-- <span xx-hj-shine>Back</span> -->
-              <span xx-hj-shine>Observations</span>
+              <!-- <span xxx-hj-shine>Back</span> -->
+              <span xxx-hj-shine>Observations</span>
           </a>
         </li>
 
         <li ui-sref-active="active">
           <a ng-focus="vm.showMenu = true" ng-blur="vm.showMenu = false" ui-sref=".profile">
-            <span xx-hj-shine>Information</span>
+            <span xxx-hj-shine>Information</span>
           </a>
         </li>
 
         <li ui-sref-active="active">
           <a ng-focus="vm.showMenu = true" ng-blur="vm.showMenu = false" ui-sref="index.archive">
-            <span xx-hj-shine>Archive</span>
+            <span xxx-hj-shine>Archive</span>
           </a>
         </li>
 
         <li ng-if="vm.fullscreenEnabled">
           <a ng-focus="vm.showMenu = true" ng-blur="vm.showMenu = false" ng-click="vm.toggleFullScreen()">
-            <span xx-hj-shine>{{ vm.isFullScreen ? 'Exit Fullscreen' : 'Fullscreen' }}</span>
+            <span xxx-hj-shine>{{ vm.isFullScreen ? 'Exit Fullscreen' : 'Fullscreen' }}</span>
           </a>
         </li>
 

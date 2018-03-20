@@ -20,7 +20,8 @@ export default angular.module('hj.customSeadragon', [])
           dzi: '=',
           focusPoint: '=?',
           zoomLevel: '=?',
-          disabled: '=?',
+          minZoomLevel: '=?',
+          wheelEnabled: '=?',
         },
         controllerAs: 'vm',
         bindToController: true,
@@ -41,7 +42,8 @@ export default angular.module('hj.customSeadragon', [])
             const animationTime = isTouch ? 1 : 5;
             const animationTimeQuick = isTouch ? 0.5 : 1;
             const maxZoomModifier = 1;
-            const minZoomLevel = 0;
+            const minZoomLevel = vm.minZoomLevel !== undefined ? vm.minZoomLevel : 0;
+            const wheelEnabled = vm.wheelEnabled !== undefined ? vm.wheelEnabled : true;
 
             let isWheelZooming = false;
             let isReady = false;
@@ -143,7 +145,7 @@ export default angular.module('hj.customSeadragon', [])
             };
 
             const wheelHandler = function wheelHandler (viewer, event) {
-              if (vm.disabled || isWheelZooming) {
+              if (!vm.wheelEnabled || isWheelZooming) {
                 return;
               }
 

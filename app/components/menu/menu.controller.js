@@ -2,8 +2,10 @@ import fscreen from 'fscreen';
 
 class MenuController {
   /* @ngInject */
-  constructor($scope, $document) {
+  constructor($scope, $document, $stateParams) {
     const vm = this;
+
+    vm.demo = !!$stateParams.demo;
 
     vm.fullscreenEnabled = fscreen.fullscreenEnabled;
 

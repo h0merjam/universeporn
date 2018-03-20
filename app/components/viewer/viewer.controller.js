@@ -18,8 +18,14 @@ class ViewerController {
     const nextIndex = index === portfolio.length - 1 ? 0 : index + 1;
     const prevIndex = index === 0 ? portfolio.length - 1 : index - 1;
 
+    vm.demo = !!$stateParams.demo;
+
     if (isHome) {
-      vm.asset = _.sample(hero) || portfolio[index];
+      if ($stateParams.hero) {
+        vm.asset = hero[parseInt($stateParams.hero, 10)];
+      } else {
+        vm.asset = _.sample(hero) || portfolio[index];
+      }
 
     } else {
       vm.asset = portfolio[index];
@@ -40,7 +46,7 @@ class ViewerController {
     $rootScope.twitterImage = socialImage;
 
     $scope.$on('$stateChangeSuccess', (event, toState) => {
-      vm.disableViewer = /profile/.test(toState.name);
+      vm.wheelEnabled = !/profile/.test(toState.name);
     });
 
     $rootScope.viewerSchema = vm.asset.schema;
