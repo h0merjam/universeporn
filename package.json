@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "nodemon index.js --ext js,html --watch routes --exec 'node -r dotenv/config'",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp",
     "deploy": "gulp build; gulp bump; git add --all; git commit --all --message \"deploy\"; git remote | xargs -L1 git push --all"
   },
   "dependencies": {
@@ -18,7 +18,7 @@
     "forever": "^0.15.3"
   },
   "devDependencies": {
-    "@homerjam/ace-angular": "^0.3.4",
+    "@homerjam/ace-angular": "^0.4.1",
     "@homerjam/ace-dev-webpack": "^0.2.4",
     "angular": "^1.6.7",
     "angular-animate": "^1.6.7",

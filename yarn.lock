@@ -2,9 +2,10 @@
 # yarn lockfile v1
 
 
-"@homerjam/ace-angular@^0.3.4":
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@homerjam/ace-angular/-/ace-angular-0.3.4.tgz#1fc0d86b972298042f6f097b3ca32e0e81a9aca0"
+"@homerjam/ace-angular@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@homerjam/ace-angular/-/ace-angular-0.4.1.tgz#ed01b97aa23af4047b5f61148167d0ec5bba1f0e"
+  integrity sha512-nLdRvKs8MhBIjnGA+wA/H/Ynq4WRjeu4tcVlw3sY8SVAXFwYh2rCjAopPc37ch/LeefCC7aEWlTdI50La7s78A==
   dependencies:
     angular-formly "^8.4.1"
     angular-local-storage "^0.6.0"
