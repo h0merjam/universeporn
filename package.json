@@ -20,7 +20,7 @@
   "devDependencies": {
     "@homerjam/ace-angular": "^0.4.1",
     "@homerjam/ace-dev-webpack": "^0.2.4",
-    "angular": "^1.6.7",
+    "angular": "^1.8.0",
     "angular-animate": "^1.6.7",
     "angular-columnify": "^0.1.20",
     "angular-gsapify-router": "0.0.35",
